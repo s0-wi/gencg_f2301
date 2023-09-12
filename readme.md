@@ -1,6 +1,5 @@
 # Day 01
 
-## Computing without computer
 
 ### Moniker: The beach (30 mns)
 
@@ -17,5 +16,4 @@ Drew a little tree by hand and then programmed it in p5.js. I then got stuck des
 {% raw %}
 <iframe src="content/day01/04/embed.html" width="100%" height="500" frameborder="no"></iframe>
 {% endraw %}
-
 
