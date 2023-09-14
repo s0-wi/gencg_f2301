@@ -4,3 +4,6 @@ This day I mostly just tried to get the documentation and git stuff to work. Thi
 
 I shortly played around with some of the code I wrote this week and I might add a sketch here:
 
+{% raw %}
+<iframe src="content/day01/04/embed.html" width="100%" height="500" frameborder="no"></iframe>
+{% endraw %}
