@@ -9,11 +9,11 @@ I used an idea that I learned from an old teacher of mine, Luc. He used the unsp
 I made to kinds of pixelation effects one following the mouse, one only influenced by it's movement. (Reload the picture by clicking.)
 
 {% raw %}
-<iframe src="content/day07/01/embed.html" width="100%" height="500" frameborder="no"></iframe>
+<iframe src="content/day07/01/embed.html" width="400" height="400" frameborder="no"></iframe>
 {% endraw %}
 
 {% raw %}
-<iframe src="content/day07/02/embed.html" width="100%" height="500" frameborder="no"></iframe>
+<iframe src="content/day07/02/embed.html" width="400" height="400" frameborder="no"></iframe>
 {% endraw %}
 
 

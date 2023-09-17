@@ -14,6 +14,6 @@ This small and rather odd exercise of drawing a dot in the biggest empty spaces 
 Drew a little tree by hand and then programmed it in p5.js. I then got stuck designing some colorchanging christmass decoration.
 
 {% raw %}
-<iframe src="content/day01/04/embed.html" width="100%" height="500" frameborder="no"></iframe>
+<iframe src="content/day01/04/embed.html" width="500" height="500" frameborder="no"></iframe>
 {% endraw %}
 

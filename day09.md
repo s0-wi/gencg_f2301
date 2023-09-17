@@ -8,7 +8,7 @@ It took me quite a bit of research to find the ways and functions to make the si
 I started with a little thing which draws rectangles on these points. I then connected one side length to the mouse motion and rotation of these rectangles to the other axis.
 
 {% raw %}
-<iframe src="content/day09/01/embed.html" width="100%" height="500" frameborder="no"></iframe>
+<iframe src="content/day09/01/embed.html" width="1200" height="600" frameborder="no"></iframe>
 {% endraw %}
 
 

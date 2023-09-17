@@ -1,4 +1,4 @@
-# Day08 - Pixelday 02
+# Day 08 - Pixelday 02
 
 Sadly I was not able to code on this day due to personal reasons and bad planning.
 

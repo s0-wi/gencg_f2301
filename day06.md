@@ -10,12 +10,12 @@ Some variations that I made on that day include:
 Don't panic! A mouse lerping text that draws a pink smoke behind it.
 
 {% raw %}
-<iframe src="content/day09/02/embed.html" width="100%" height="500" frameborder="no"></iframe>
+<iframe src="content/day09/02/embed.html" width="800" height="800" frameborder="no"></iframe>
 {% endraw %}
 
 A colorchanging letter that meanders on its own.
 
 {% raw %}
-<iframe src="content/day09/04/embed.html" width="100%" height="500" frameborder="no"></iframe>
+<iframe src="content/day09/04/embed.html" width="800" height="800" frameborder="no"></iframe>
 {% endraw %}
 
