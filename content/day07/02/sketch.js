@@ -1,71 +1,35 @@
-let canvas, video;
+let url = "https://source.unsplash.com/random/400x400/?cats"
+let img;
 
-// Default P5 setup function
+function preload() {
+  img = loadImage(url);
+}
+
 function setup() {
-  canvas = createCanvas(windowWidth, windowHeight);
-  video = createCapture(VIDEO);
-  video.hide();
+  createCanvas(400, 400);
+  background(0);
+  noStroke();
 }
-
-// Default P5 draw loop function
 function draw() {
-  drawImage(video);
-}
+  background(255);
 
-function keyPressed() {
-  if (key == "s" || key == "S") saveImage(width, height);
-}
-
-// Tools
-
-// Make sketch full screen
-function goFullScreen() {
-  let isFullScreen = Boolean(fullscreen());
-  fullscreen(!isFullScreen);
-}
-
-// Resize canvas when the window is resized
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight, false);
-}
-
-// Sketch is double clicked
-function doubleClicked() {
-  goFullScreen();
-}
-
-// Timestamp
-function timestamp() {
-  return Date.now();
-}
-
-// Thumb
-function saveImage(w, h) {
-  let img = get(width / 2 - w / 2, height / 2 - h / 2, w, h);
-  save(img, `screenshot-${timestamp()}.jpg`);
-}
-
-// Draw centered full page image
-function drawImage(img) {
-  // var
-  let imgWidth = width;
-  let imgHeight = height;
-  let imgPosX = 0;
-  let imgPosY = 0;
-
-  // Calculate aspect ratios
-  const imgAspectRatio = img.width / img.height;
-  const sketchAspectRatio = width / height;
-
-  // Calculate img size and position
-  if (sketchAspectRatio >= imgAspectRatio) {
-    imgHeight = (img.height * width) / img.width;
-    imgPosY = -(imgHeight - height) / 2;
-  } else {
-    imgWidth = (img.width * height) / img.height;
-    imgPosX = -(imgWidth - width) / 2;
+  //let gridX = width / int(map(mouseX, 0, width, 100, 1, true))
+  //let gridY = height / int(map(mouseY, 0, height, 100, 1, true))
+  
+  let gridX = constrain(mouseX, 1, width);
+  let gridY = constrain(mouseY, 1, height);
+  
+  for (let x = 0; x < width; x += gridX) {
+    for (let y = 0; y < height; y += gridY) {
+      fill(img.get(x, y))
+      rect(x, y, gridX, gridY);
+    }
   }
+}
 
-  // Draw image
-  image(img, imgPosX, imgPosY, imgWidth, imgHeight);
+function mousePressed() {
+  fetch(url).then(
+    function (response) {
+      img = loadImage(response.url);
+    });
 }

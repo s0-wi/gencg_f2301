@@ -1,45 +1,41 @@
-let stemlength, stemwidth, ball_color;
+let x, y, n, c
+
+let font
+
+function preload() {
+  font = loadFont("BluuNext-Bold.otf")
+
+}
 
 function setup() {
-  stemwidth = 20;
-  stemheight = 70;
-  ball_color = 0;
-  ("colorMode(HSB)");
+  createCanvas(800, 800);
+  background(0)
+  x = 300
+  y = 500
+  n = 0
+  c = 0
 
-  createCanvas(500, 500);
+  noFill()
+  colorMode(HSB)
+  strokeWeight(0.08)
+
+  textFont(font)
+  textSize(500)
+
 }
 
 function draw() {
-  background(220);
+  n = noise(x/100 ,y/200) + (n/2)
+  x += sin(n*4*PI)/1.5
+  y += cos(n*4*PI)/1.5
 
-  noStroke();
-  fill("brown");
-  rect(
-    width / 2 - stemwidth / 2,
-    height / 2 + stemheight / 2,
-    stemwidth,
-    stemheight
-  );
-
-  noStroke();
-  fill("green");
-  vertex(width / 2 - 60, height / 2 + stemheight / 2);
-  vertex(width / 2 + 60, height / 2 + stemheight / 2);
-  vertex(width / 2, height / 2 + stemheight / 2 - 200);
-  endShape(CLOSE);
-
-  noStroke();
-  fill((ball_color + 120) % 360, 50, 50);
-  circle(210, 250, 30);
-  ball_color++;
-
-  noStroke();
-  fill((ball_color + 240) % 360, 50, 50);
-  circle(260, 150, 40);
-  ball_color++;
-
-  noStroke();
-  fill(ball_color % 360, 50, 50);
-  circle(270, 210, 50);
-  ball_color++;
+  stroke(c%360, 50, 50)
+  //rect(x,y, 50)
+  text("G",x,y)
+  c++
+}
+function keyPressed() {
+  if (key == 's') {
+    save("test.png")
+  }
 }

@@ -1,71 +1,75 @@
-let canvas, video;
+let x, y, n, c, ecken, t, maserung, strich
 
-// Default P5 setup function
+
 function setup() {
-  canvas = createCanvas(windowWidth, windowHeight);
-  video = createCapture(VIDEO);
-  video.hide();
+  createCanvas(2000, 1000);
+  background(255)
+  x = width /2 
+  y = height /2
+  n = 0
+  t=1
+  ecken = 24
+  maserung = 5
+  strich = 0.1
+
+  noFill()
+  colorMode(HSB)
+  
+angleMode(DEGREES)
+  smooth()
+  pixelDensity(2)
+
 }
 
-// Default P5 draw loop function
 function draw() {
-  drawImage(video);
-}
+  
 
-function keyPressed() {
-  if (key == "s" || key == "S") saveImage(width, height);
-}
+  x = lerp(x, mouseX, 0.01)
+  y = lerp(y, mouseY, 0.01)
 
-// Tools
-
-// Make sketch full screen
-function goFullScreen() {
-  let isFullScreen = Boolean(fullscreen());
-  fullscreen(!isFullScreen);
-}
-
-// Resize canvas when the window is resized
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight, false);
-}
-
-// Sketch is double clicked
-function doubleClicked() {
-  goFullScreen();
-}
-
-// Timestamp
-function timestamp() {
-  return Date.now();
-}
-
-// Thumb
-function saveImage(w, h) {
-  let img = get(width / 2 - w / 2, height / 2 - h / 2, w, h);
-  save(img, `screenshot-${timestamp()}.jpg`);
-}
-
-// Draw centered full page image
-function drawImage(img) {
-  // var
-  let imgWidth = width;
-  let imgHeight = height;
-  let imgPosX = 0;
-  let imgPosY = 0;
-
-  // Calculate aspect ratios
-  const imgAspectRatio = img.width / img.height;
-  const sketchAspectRatio = width / height;
-
-  // Calculate img size and position
-  if (sketchAspectRatio >= imgAspectRatio) {
-    imgHeight = (img.height * width) / img.width;
-    imgPosY = -(imgHeight - height) / 2;
-  } else {
-    imgWidth = (img.width * height) / img.height;
-    imgPosX = -(imgWidth - width) / 2;
+  translate(x,y)
+  
+  strokeWeight(strich)
+  stroke(0,t)
+  noFill()
+  beginShape()
+  
+  for (let i = 0; i < ecken +3 ; i++){
+    let amp = noise((i%ecken)/maserung, frameCount/150) *100;
+    let angle = 360 / ecken;
+    let vx = cos(i * angle) * amp;
+    let vy = sin(i * angle) * amp;
+    curveVertex(vx, vy);
+    
   }
+  endShape()
+  
+}
+function keyPressed() {
+  if (key == 's') {
+    save("test.png")
+    noLoop()
+  }
+  if (key =="q"){
+    t = t-0.05
+  }
+    if (key =="w"){
+    t = t+0.05
+  }
+      if (key =="t"){
+    maserung = maserung-0.1
+  }
+      if (key =="z"){
+    maserung = maserung+0.1
+  }
+  if (key =="e"){
+    strich = strich-0.05
+  }
+    if (key =="r"){
+    strich = strich+0.05
+  }
+}
 
-  // Draw image
-  image(img, imgPosX, imgPosY, imgWidth, imgHeight);
+function mouseClicked() {
+  console.log(mouseX/width, mouseY/height/2)
 }

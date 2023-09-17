@@ -1,71 +1,40 @@
-let canvas, video;
+let x, y, n
 
-// Default P5 setup function
+let font
+
+function preload() {
+  font = loadFont("BluuNext-Bold.otf")
+
+}
+
 function setup() {
-  canvas = createCanvas(windowWidth, windowHeight);
-  video = createCapture(VIDEO);
-  video.hide();
+  createCanvas(800, 800);
+  background(20)
+  x = 200
+  y = height/2
+  n = 0
+
+  fill(247, 140, 164, 12)
+  noStroke()
+  strokeWeight(0.09)
+
+  textFont(font)
+  textSize(100)
+
 }
 
-// Default P5 draw loop function
 function draw() {
-  drawImage(video);
-}
+  //n = noise(x/100 ,y/200) + (n/2)
+  //x += sin(n*4*PI)
+  //y += cos(n*4*PI)
+  x = lerp(x, mouseX, 0.01)
+  y = lerp(y, mouseY, 0.01)
+  //rect(x,y, 50)
+  text("Don't Panic!",x,y)
 
+}
 function keyPressed() {
-  if (key == "s" || key == "S") saveImage(width, height);
-}
-
-// Tools
-
-// Make sketch full screen
-function goFullScreen() {
-  let isFullScreen = Boolean(fullscreen());
-  fullscreen(!isFullScreen);
-}
-
-// Resize canvas when the window is resized
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight, false);
-}
-
-// Sketch is double clicked
-function doubleClicked() {
-  goFullScreen();
-}
-
-// Timestamp
-function timestamp() {
-  return Date.now();
-}
-
-// Thumb
-function saveImage(w, h) {
-  let img = get(width / 2 - w / 2, height / 2 - h / 2, w, h);
-  save(img, `screenshot-${timestamp()}.jpg`);
-}
-
-// Draw centered full page image
-function drawImage(img) {
-  // var
-  let imgWidth = width;
-  let imgHeight = height;
-  let imgPosX = 0;
-  let imgPosY = 0;
-
-  // Calculate aspect ratios
-  const imgAspectRatio = img.width / img.height;
-  const sketchAspectRatio = width / height;
-
-  // Calculate img size and position
-  if (sketchAspectRatio >= imgAspectRatio) {
-    imgHeight = (img.height * width) / img.width;
-    imgPosY = -(imgHeight - height) / 2;
-  } else {
-    imgWidth = (img.width * height) / img.height;
-    imgPosX = -(imgWidth - width) / 2;
+  if (key == 's') {
+    save("test.png")
   }
-
-  // Draw image
-  image(img, imgPosX, imgPosY, imgWidth, imgHeight);
 }

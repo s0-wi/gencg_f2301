@@ -9,15 +9,17 @@ here a very boring and obvious sketch I made (including the next step):
 Here the result:
 
 {% raw %}
-<iframe src="content/day01/04/embed.html" width="100%" height="500" frameborder="no"></iframe>
+<iframe src="content/day01/03/embed.html" width="100%" height="500" frameborder="no"></iframe>
 {% endraw %}
 
 ## Square Grid
 I continued with a grid made in a nested loop function using squares.
 After getting this function to work I randomized the fill color of the squares giving it all a painful iridescent look.
 
+* sadly I lost my code here. So I leave you with a happy accident. *
+
 {% raw %}
-<iframe src="content/day01/04/embed.html" width="100%" height="500" frameborder="no"></iframe>
+<iframe src="content/day01/02/embed.html" width="100%" height="500" frameborder="no"></iframe>
 {% endraw %}
 
 
