@@ -27,7 +27,7 @@ In the end of the day I got it though:
 
 
 
-* sadly I lost my code here. So I leave you with a happy accident. *
+* Sadly I lost my code here. So I leave you with a happy accident. *
 
 {% raw %}
 <iframe src="content/day01/02/embed.html" width="400" height="400" frameborder="no"></iframe>
